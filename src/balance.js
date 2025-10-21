@@ -15,3 +15,7 @@ export async function getBalance(address) {
     }
 }
 
+export async function getMyBalance() {
+    const wallet = loadWalletFunction();
+    await getBalance(wallet.address);
+}
