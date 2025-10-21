@@ -26,3 +26,12 @@ export function loadWalletFromEnv() {
     console.log("Address:", wallet.address);
     return wallet;
 }
+
+export async function signMessage(message) {
+    const wallet = loadWalletFromEnv();
+    const signature = await wallet.signMessage(message);
+    console.log("Message has been signed.");
+    console.log("Message:", message);
+    console.log("Signature:", signature)
+    return signature;
+}
