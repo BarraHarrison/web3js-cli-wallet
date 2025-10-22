@@ -17,6 +17,15 @@ export async function sendTransaction(to, amountEth) {
         console.log(` Transaction hash: ${tx.hash}`);
         console.log("Waiting for the confirmation...")
 
+        const receipt = await tx.wait();
 
+        console.log("Transaction Confirmed!");
+        console.log(` Block Number: ${receipt.blockNumber}`);
+        console.log(` Gas Used: ${receipt.gasUsed.toString()}`);
+
+        return receipt;
+
+    } catch (err) {
+        console.error("❌ Error sending transaction:", err);
     }
 }
