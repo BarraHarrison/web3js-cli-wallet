@@ -11,3 +11,5 @@ async function generateWallet() {
     console.log("Mnemonic:", wallet.mnemonic?.phrase || "N/A");
     console.log("---------------------------");
 }
+
+generateWallet();
