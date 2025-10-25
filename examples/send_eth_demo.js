@@ -1,8 +1,8 @@
 import { sendTransaction } from "../src/sendTransaction";
 
 async function main() {
-    const recipient = "";
-    const amount = "";
+    const recipient = "0xF4efa371997D0222625E25096FdbDa34B98421ae";
+    const amount = "0.0001";
 
     console.log("Sending transaction....");
     await sendTransaction(recipient, amount);
