@@ -1,6 +1,6 @@
 import { parseEther } from "ethers";
-import { getProvider } from "./provider";
-import { loadWalletFromEnv } from "./wallet";
+import { getProvider } from "./provider.js";
+import { loadWalletFromEnv } from "./wallet.js";
 
 export async function sendTransaction(to, amountEth) {
     try {
