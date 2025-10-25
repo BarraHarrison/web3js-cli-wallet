@@ -1,4 +1,4 @@
-import { sendTransaction } from "../src/sendTransaction";
+import { sendTransaction } from "../src/sendTransaction.js";
 
 async function main() {
     const recipient = "0xF4efa371997D0222625E25096FdbDa34B98421ae";
