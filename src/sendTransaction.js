@@ -4,10 +4,22 @@ import { loadWalletFromEnv } from "./wallet";
 
 export async function sendTransaction(to, amountEth) {
     try {
+        const showCommand = process.argv.includes("--showCommand");
         const provider = getProvider();
         const wallet = loadWalletFromEnv().connect(provider);
 
-        console.log(` Sending ${amountEth} ETH from ${wallet.address} to ${to}...`)
+        if (showCommand) {
+            console.log("⚙️ Secure Mode: Showing wallet and transaction info");
+            console.log("---------------------------");
+            console.log(`Sender: ${wallet.address}`);
+            console.log(`Recipient: ${to}`);
+            console.log(`Amount (ETH): ${amountEth}`);
+            console.log("---------------------------");
+        } else {
+            console.log(`💸 Preparing to send ${amountEth} ETH...`);
+        }
+
+        if (showCommand) console.log("🚀 Sending transaction...");
 
         const tx = await wallet.sendTransaction({
             to,
